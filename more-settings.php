@@ -53,4 +53,10 @@ function deshabilitar_rest_api(){
 	});
 }
 add_action('init', 'deshabilitar_rest_api');
+
+/* Mostrar terms en orden jerárquico */
+add_filter('wp_terms_checklist_args', function($args, $idPost) {
+    $args['checked_ontop'] = false;
+    return $args;
+}, 10, 2);
 ?>
